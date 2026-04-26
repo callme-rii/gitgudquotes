@@ -12,52 +12,27 @@ This project simulates an open-source collaboration environment. By submitting a
 - Learn how to resolve merge conflicts (if multiple students edit the file at the same time).
 - Understand Git and GitHub collaboration best practices.
 
-## 🛠️ How to Contribute
+## 🛠️ How to Participate
 
-To get your quote on the board, follow the step-by-step guide below.
+There are two ways you can get your quote on the board:
 
-### Step-by-Step Contribution Guide
+### Option A: The Pro Way (GitHub Pull Request)
+This is for those who want to practice the real-world software engineering workflow. Contributions made this way are **permanent** and will be visible to everyone!
 
-1. **Fork the Repository**
-   Click the "Fork" button in the top right corner of this GitHub repository to create your own copy on your GitHub profile.
+1. **Fork** this repository.
+2. **Clone** your fork and create a branch.
+3. **Add your quote** to `quotes.json`.
+4. **Commit, Push, and PR!** (Full guide below).
 
-2. **Clone Your Fork**
-   Clone the repository to your local machine using your terminal:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/github-tutorial.git
-   cd github-tutorial
-   ```
-
-3. **Create a New Branch**
-   Create an isolation branch for your work. Don't work directly on `main`!
-   ```bash
-   git checkout -b add-quote-yourname
-   ```
-
-4. **Edit `quotes.json`**
-   Open the `quotes.json` file in your favorite text editor. Add your quote object to the **end** of the JSON array. Follow the [JSON Format Rules](#-json-format-rules) exactly.
-
-5. **Commit Your Changes**
-   Stage and commit your changes with a clear commit message in the imperative mood.
-   ```bash
-   git add quotes.json
-   git commit -m "Add quote from [Your Name]"
-   ```
-
-6. **Push to Your Fork**
-   Push the new branch up to your forked repository on GitHub.
-   ```bash
-   git push origin add-quote-yourname
-   ```
-
-7. **Create a Pull Request**
-   Go to the original repository on GitHub, and click "Compare & pull request". 
-   - **Pull Request Title Format**: `Add quote from [Your Name]`
-   - Verify there are no merge conflicts before submitting.
+### Option B: The Quick Way (Instant Form)
+Perfect if you're having technical issues or just want to see how your quote looks instantly.
+1. Click the **"Add My Quote Instantly"** button on the website.
+2. Fill out the form.
+3. Your quote will appear immediately on your browser! (Note: This is saved locally to your browser via `localStorage`).
 
 ---
 
-## 📝 JSON Format Rules
+## 🎯 Step-by-Step Guide for Option A (PR)
 
 When editing `quotes.json`, ensure your entry matches the exact format of the existing objects. 
 - Ensure proper use of double quotes (`"`), commas `,`, and curly braces `{}`. 

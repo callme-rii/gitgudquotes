@@ -21,16 +21,25 @@
     </header>
 
     <section class="instructions-card">
-      <h2><span class="icon">🚀</span> How to Play</h2>
-      <p>Add your own quote to this board by following these steps:</p>
-      <ol>
-        <li><strong>Fork</strong> this repository to your account.</li>
-        <li><strong>Create a new branch</strong> for your quote.</li>
-        <li><strong>Add your quote</strong> to <code class="code">quotes.json</code>! <!-- Hint: This is the file students edit --></li>
-        <li><strong>Commit and push</strong> your changes to your fork.</li>
-        <li><strong>Submit a Pull Request</strong> back to the main repository.</li>
-      </ol>
-      <p class="instruction-note">Read the <a href="README.md" target="_blank" rel="noopener">README</a> for detailed instructions!</p>
+      <div class="instructions-header">
+        <h2><span class="icon">🚀</span> How to Participate</h2>
+        <button id="open-modal-btn" class="primary-btn">Add My Quote Instantly</button>
+      </div>
+      <p>Choose your way to contribute:</p>
+      <div class="contribution-options">
+        <div class="option">
+          <h3>Option A: The Pro Way (Pull Request)</h3>
+          <ol>
+            <li><strong>Fork</strong> this repository.</li>
+            <li><strong>Add your quote</strong> to <code class="code">quotes.json</code>.</li>
+            <li><strong>Submit a Pull Request</strong> to get featured permanently!</li>
+          </ol>
+        </div>
+        <div class="option">
+          <h3>Option B: Quick Way (Local)</h3>
+          <p>Click the button above to add a quote instantly to your browser.</p>
+        </div>
+      </div>
     </section>
 
     <!-- Search and Filter Section -->
@@ -61,6 +70,31 @@
         <p>Check the console for details. Is <code>quotes.json</code> missing or invalid?</p>
       </div>
     </main>
+
+    <!-- Modal Form -->
+    <div id="quote-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Your Quote</h3>
+          <button id="close-modal-btn" class="close-btn">&times;</button>
+        </div>
+        <form id="quote-form">
+          <div class="form-group">
+            <label for="student-name">Name</label>
+            <input type="text" id="student-name" required placeholder="e.g. John Doe">
+          </div>
+          <div class="form-group">
+            <label for="student-class">Class</label>
+            <input type="text" id="student-class" required placeholder="e.g. LA06">
+          </div>
+          <div class="form-group">
+            <label for="quote-text">Your Quote</label>
+            <textarea id="quote-text" required placeholder="What's your developer wisdom?"></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Post Quote</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <footer>

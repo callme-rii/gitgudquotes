@@ -3,31 +3,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInput = document.getElementById('search');
   const emptyState = document.getElementById('empty-state');
   const errorState = document.getElementById('error-state');
+  
+  // Modal Elements
+  const modal = document.getElementById('quote-modal');
+  const openModalBtn = document.getElementById('open-modal-btn');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const quoteForm = document.getElementById('quote-form');
 
-  let quotesData = [];
+  let remoteQuotes = [];
+  let localQuotes = JSON.parse(localStorage.getItem('my_quotes') || '[]');
 
   // Fetch quotes from the quotes.json file
   fetch('quotes.json')
     .then(response => {
-      // Basic manual error handling for HTTP response
-      if (!response.ok) {
-        throw new Error(`Failed to load quotes.json: ${response.statusText}`);
-      }
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
       return response.json();
     })
     .then(data => {
-      quotesData = data;
-      renderQuotes(data);
+      remoteQuotes = data;
+      updateDisplay();
     })
     .catch(error => {
       console.error('Error fetching quotes:', error);
-      quotesContainer.classList.add('hidden');
-      errorState.classList.remove('hidden');
+      // Even if remote fails, we might have local ones
+      if (localQuotes.length > 0) {
+        updateDisplay();
+      } else {
+        quotesContainer.classList.add('hidden');
+        errorState.classList.remove('hidden');
+      }
     });
+
+  // Combine remote and local data then render
+  function updateDisplay() {
+    const allQuotes = [...remoteQuotes, ...localQuotes];
+    filterAndRender(allQuotes);
+  }
 
   // Render the list of quotes to the DOM
   function renderQuotes(quotesToRender) {
-    // Clear out current cards
     quotesContainer.innerHTML = '';
     
     if (quotesToRender.length === 0) {
@@ -35,13 +49,16 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       emptyState.classList.add('hidden');
       
-      quotesToRender.forEach(item => {
+      quotesToRender.forEach((item, index) => {
         const card = document.createElement('div');
         card.className = 'quote-card';
         
-        // Use an escapeHTML helper to prevent any XSS issues
+        // Add a 'Local' badge if it's from localStorage
+        const isLocal = item.isLocal ? '<span class="category-badge" style="background: rgba(34, 197, 94, 0.1); color: #4ade80; border-color: rgba(34, 197, 94, 0.2)">Local Demo</span>' : '';
+
         card.innerHTML = `
           <div class="card-header">
+            ${isLocal}
             <span class="class-badge">${escapeHTML(item.class)}</span>
           </div>
           <div class="card-body">
@@ -57,24 +74,47 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter based on search input
-  function filterQuotes() {
+  function filterAndRender(data = [...remoteQuotes, ...localQuotes]) {
     const searchTerm = searchInput.value.toLowerCase();
 
-    const filtered = quotesData.filter(item => {
-      const nameMatch = item.name.toLowerCase().includes(searchTerm);
-      const classMatch = item.class.toLowerCase().includes(searchTerm);
-      const quoteMatch = item.quote.toLowerCase().includes(searchTerm);
-      
-      return nameMatch || classMatch || quoteMatch;
+    const filtered = data.filter(item => {
+      return item.name.toLowerCase().includes(searchTerm) || 
+             item.class.toLowerCase().includes(searchTerm) || 
+             item.quote.toLowerCase().includes(searchTerm);
     });
 
     renderQuotes(filtered);
   }
 
-  // Event Listeners for Filters
-  searchInput.addEventListener('input', filterQuotes);
+  // Modal Logic
+  openModalBtn.addEventListener('click', () => modal.classList.remove('hidden'));
+  closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.classList.add('hidden');
+  });
 
-  // Helper method: Prevents script injection by escaping raw input 
+  // Handle Form Submission
+  quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const newQuote = {
+      name: document.getElementById('student-name').value,
+      class: document.getElementById('student-class').value,
+      quote: document.getElementById('quote-text').value,
+      isLocal: true // Mark to distinguish from JSON data
+    };
+
+    localQuotes.push(newQuote);
+    localStorage.setItem('my_quotes', JSON.stringify(localQuotes));
+    
+    // UI Updates
+    quoteForm.reset();
+    modal.classList.add('hidden');
+    updateDisplay();
+  });
+
+  searchInput.addEventListener('input', () => updateDisplay());
+
   function escapeHTML(str) {
     if (!str) return '';
     const div = document.createElement('div');
