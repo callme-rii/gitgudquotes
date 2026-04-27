@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       remoteQuotes = data;
       updateDisplay();
+      displayRandomQuote();
     })
     .catch(error => {
       console.error('Error fetching quotes:', error);
@@ -121,4 +122,20 @@ document.addEventListener('DOMContentLoaded', () => {
     div.textContent = str;
     return div.innerHTML;
   }
+
+  // Display random quote
+  function displayRandomQuote() {
+    const allQuotes = [...remoteQuotes, ...localQuotes];
+    if (allQuotes.length === 0) return;
+
+    const randomQuote = allQuotes[Math.floor(Math.random() * allQuotes.length)];
+    const randomCard = document.getElementById('random-quote-card');
+
+    randomCard.innerHTML = `
+      <blockquote>${escapeHTML(randomQuote.quote)}</blockquote>
+      <p class="quote-author">— ${escapeHTML(randomQuote.name)} (${escapeHTML(randomQuote.class)})</p>
+    `;
+  }
+
+  document.getElementById('another-quote-btn').addEventListener('click', displayRandomQuote);
 });
