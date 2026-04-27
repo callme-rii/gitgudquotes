@@ -1,7 +1,67 @@
 [
+	{
+		"name": "Owi",
+		"class": "LE01",
+		"quote": "we wok de tok not anle tok de tok"
+	},
   {
     "name": "Farrell Axel Suwandi",
     "class": "LE01",
     "quote": "Git gud or git rekt."
+  },
+  {
+    "name": "gg",
+    "class": "LH01",
+    "quote": "membelajari pergit an dunia sangat mengasikan"
+  },
+  {
+    "name": "Alin Lorensia",
+    "class": "LE01",
+    "quote": "I like bread"
+  },
+  {
+    "name": "Daniel Regis",
+    "class": "LE01",
+    "quote": "feat: add random quote"
+  },
+	{
+    "name": "Stanislaus Alva Jufinto",
+    "class": "LF07",
+    "quote": "A clear commit message helps your future self."
+  },
+  {
+    "name": "Ilham",
+    "class": "LE01",
+    "quote": "Talk is cheap. Show me the code."
+  },
+  {
+    "name": "Tes",
+    "class": "LE01",
+    "quote": "Testing is essential for reliable software."
+  },
+  {
+    "name": "Jerome M.B",
+    "class": "LE01",
+    "quote": "Be yourself and never surrender."
+  },
+    {
+    "name": "Yosuke",
+    "class": "LE07",
+    "quote": "A journey of a thousand miles begins with a single step."
+	},
+  {
+    "name": "Arief Arya Menon",
+    "class": "LE01",
+    "quote": "Hard things are easy when you don't think it's hard."
+  },
+  {
+    "name": "John",
+    "class": "LE01",
+    "quote": "if debugging is the process of removing software bugs, then programming must be the process of putting them in." 
+  },
+  {
+  "name": "Linus Torvalds",
+  "class": "LE01",
+  "quote": "Talk is cheap. Show me the code."
   }
 ]

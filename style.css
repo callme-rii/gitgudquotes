@@ -425,6 +425,79 @@ a:hover {
   resize: vertical;
 }
 
+.random-quote {
+  background-color: var(--instruction-bg);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: 12px;
+  padding: 1.75rem 2.25rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.random-quote h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+.quote-card-featured {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.quote-card-featured blockquote {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin: 0 0 1rem 0;
+}
+
+.quote-card-featured blockquote::before {
+  content: '"';
+  color: var(--accent-color);
+  opacity: 0.7;
+}
+
+.quote-card-featured blockquote::after {
+  content: '"';
+  color: var(--accent-color);
+  opacity: 0.7;
+}
+
+.quote-author {
+  text-align: right;
+  font-weight: 600;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1rem;
+  margin: 0;
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
