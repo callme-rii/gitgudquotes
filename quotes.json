@@ -1,16 +1,42 @@
 [
+	{
+		"name": "Example Student",
+		"class": "LA06",
+		"quote": "Small commits make big projects manageable."
+	},
+	{
+		"name": "Example Student 2",
+		"class": "LF07",
+		"quote": "A clear commit message helps your future self."
+	},
+	{
+		"name": "Owi",
+		"class": "LE01",
+		"quote": "we wok de tok not anle tok de tok"
+	},
   {
-    "name": "Example Student",
-    "class": "LA06",
-    "quote": "Small commits make big projects manageable."
+    "name": "gg",
+    "class": "LH01",
+    "quote": "membelajari pergit an dunia sangat mengasikan"
   },
   {
-    "name": "Example Student 2",
+    "name": "Stanislaus Alva Jufinto",
     "class": "LF07",
-    "quote": "A clear commit message helps your future self."
-  }
+    "quote": "Salam kenal aku gue."
+  },
+    {
+    "name": "Yosuke",
+    "class": "LE07",
+    "quote": "A journey of a thousand miles begins with a single step."
+	},
   {
-    "name": "John"
-    "quote": "if debugging is the process of removing software bugs, then programming must be the process of putting them in" 
+    "name": "Arief Arya Menon",
+    "class": "LE01",
+    "quote": "Hard things are easy when you don't think it's hard."
+  },
+  {
+    "name": "John",
+    "class": "LE07",
+    "quote": "if debugging is the process of removing software bugs, then programming must be the process of putting them in." 
   }
 ]
